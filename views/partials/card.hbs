@@ -1,0 +1,25 @@
+<div id="card-{{this.id}}">
+  <p>{{this.name}}</p>
+  <img src="{{this.image}}">
+  <p>{{this.price}}</p>
+  <p>{{this.condition}}</p>
+  <p>{{this.city}}</p>
+  {{#if indexForm}}
+  <form name="addToBasket" action="/">
+    <input type="submit" value="Купить">
+  </form>
+  {{/if}}
+  {{#if storageForm}}
+  <form name="editCard">
+    <input type="submit" value="Редактировать">
+  </form>
+  <form name="deleteCard">
+    <input type="submit" value="Удалить">
+  </form>
+  {{/if}}
+  {{#if basketForm}}
+  <form name="deleteFromBasket">
+    <input type="submit" value="Удалить">
+  </form>
+  {{/if}}
+</div>
