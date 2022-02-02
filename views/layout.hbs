@@ -9,7 +9,24 @@
 </head>
 <body>
   <header>
-    {{!-- тут строка поиска ,  корзина, кнопки входа/ выхода --}}
+    <form action="/search" method="post">
+      <input type="text" name="search">
+      <input type="submit" name="Поиск">
+    </form>
+    <form action="/basket">
+        <input type="submit" value="Корзина">
+    </form>
+    {{#if isGuest}}
+    <form action="/login">
+        <input type="submit" value="Войти">
+    </form>
+    <form action="/registration">
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+    {{/if}}
+    {{#if isUser}}
+    <button>Меню</button>
+    {{/if}}
   </header>
   {{{body}}}
 </body>
