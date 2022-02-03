@@ -11,21 +11,20 @@
   <header>
     <form action="/search" method="post">
       <input type="text" name="search">
-      <input type="submit" name="Поиск">
+      <input type="submit" value="Поиск">
     </form>
     <form action="/basket">
         <input type="submit" value="Корзина">
     </form>
-    {{#if isGuest}}
+    {{#if isAutorized}}
+    <button>Меню</button>
+    {{else}}
     <form action="/login">
         <input type="submit" value="Войти">
     </form>
     <form action="/registration">
         <input type="submit" value="Зарегистрироваться">
     </form>
-    {{/if}}
-    {{#if isUser}}
-    <button>Меню</button>
     {{/if}}
   </header>
   {{{body}}}

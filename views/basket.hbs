@@ -1,5 +1,8 @@
 {{#each cards}}
-  {{>card}}
+  <div id="card-{{id}}">
+    {{>cardInfo}}
+    {{>basketButton}}
+  </div>
 {{/each}}
 <form name="buyCards"></form>
   <input type="submit" value="Купить карточки">

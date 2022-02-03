@@ -1,3 +1,6 @@
 {{#each cards}}
-  {{>card}}
+  <div id="card-{{id}}">
+    {{>cardInfo}}
+    {{>storageButton}}
+  </div>
 {{/each}}
