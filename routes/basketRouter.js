@@ -20,10 +20,12 @@ router.route('/')
         price: '4$',
         condition: 'bad',
         city: 'MSK',
-      }];
+      },
+      ];
     }
     res.render('basket', {
-      isGuest: true,
+      isUser: true,
+      storageForm: true,
       cards,
     });
   });

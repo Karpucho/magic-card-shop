@@ -1,9 +1,28 @@
 const router = require('express').Router();
-const { Card } = require('../db/models');
+const {
+  Card,
+  User,
+} = require('../db/models');
 
-router.get('/', async (req, res, next) => {
-  const cards = await Card.findAll();
-  return res.render('storage', { cards });
+router.get('/', async (req, res) => {
+  const cards = await Card.findAll({
+    raw: true,
+    include: {
+      model: User,
+      attributes: ['city'],
+    },
+  });
+
+  cards.map((card) => {
+    card.city = card['User.city'];
+    delete card['User.city'];
+  });
+
+  res.render('storage', {
+    isUser: true,
+    storageForm: true,
+    cards,
+  });
 });
 
 module.exports = router;

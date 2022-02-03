@@ -1,5 +1,5 @@
 <div id="card-{{this.id}}">
-  <p>Имя: {{this.name}}</p>
+  <p>Имя: {{this.cardsName}}</p>
   <img src="{{this.image}}">
   <p>Цена:{{this.price}}</p>
   <p>Состояние:{{this.condition}}</p>
@@ -17,7 +17,7 @@
     <input type="submit" value="Удалить">
   </form>
   {{/if}}
-  {{#if basketForm}}
+  {{#if this.basketForm}}
   <form name="deleteFromBasket">
     <input type="submit" value="Удалить">
   </form>
