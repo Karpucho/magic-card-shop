@@ -19,8 +19,7 @@ router.get('/', async (req, res) => {
   });
 
   res.render('storage', {
-    isUser: true,
-    storageForm: true,
+    isAuthorized: req.session.isAuthorized,
     cards,
   });
 });

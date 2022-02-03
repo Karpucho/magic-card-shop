@@ -19,7 +19,7 @@ const config = (app) => {
 
   // SET
   app.set('view engine', 'hbs');
-  hbs.registerPartials(`${__dirname}/views/partials`);
+  hbs.registerPartials(`${__dirname}/../views/partials`);
 };
 
 module.exports = config;

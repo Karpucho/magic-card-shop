@@ -28,8 +28,7 @@ router.route('/')
     // isAutorized вытаскивается из корзины
     res.render('basket', {
 
-      isAutorized: false,
-
+      isAuthorized: req.session.isAuthorized,
       cards,
     });
   });

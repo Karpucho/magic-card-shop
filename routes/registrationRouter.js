@@ -16,6 +16,7 @@ router.route('/')
       password,
       city,
     } = req.body;
+
     const user = await User.create({
       name,
       email,
