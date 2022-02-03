@@ -16,7 +16,11 @@
     <form action="/basket" method="get">
         <input type="submit" value="Корзина">
     </form>
-    {{#if isAutorized}}
+
+    {{#if isAuthorized}}
+    <form action="/logout">
+        <input type="submit" value="Выйти">
+    </form>
     <button>Меню</button>
     {{else}}
     <form action="/login">
