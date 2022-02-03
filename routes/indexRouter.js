@@ -22,10 +22,17 @@ router.route('/')
         price: '4$',
         condition: 'bad',
         city: 'MSK',
+      },
+      {
+        id: 3,
+        cardsName: 'third Card',
+        price: '5$',
+        condition: 'excelent',
+        city: 'EKB',
       }];
     }
     res.render('index', {
-      isAutorized: true,
+      isAutorized: false,
       cards,
     });
   });
