@@ -1,11 +1,17 @@
 <form action="/registration" method="post">
   <label for="email">Введите e-mail</label>
-  <input type="email" name="email" id="email">
-  <label for="password">Введите пароль</label>
-  <input type="password" name="password" id="password">
-  <label for="passwordSecond">Повторите пароль</label>
-  <input type="password" name="passwordSecond" id="passwordSecond">
+  <input type="text" name="email" id="email">
+  <br>
+  <label for="name">Введите город</label>
+  <input type="text" name="city" placeholder="city">
+  <br>
+  {{!-- <label for="passwordSecond">Повторите пароль</label>
+  <input type="password" name="passwordSecond" id="passwordSecond"> --}}
   <label for="name">Введите имя пользователя</label>
   <input type="text" name="name" id="name">
+  <br>
+  <label for="password">Введите пароль</label>
+  <input type="password" name="password" id="password">
+  <br>
   <input type="submit" value="Зарегистрироваться">
 </form>

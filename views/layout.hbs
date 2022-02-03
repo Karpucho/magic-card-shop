@@ -16,16 +16,18 @@
     <form action="/basket">
         <input type="submit" value="Корзина">
     </form>
-    {{#if isGuest}}
+    {{#if isAuthorized}}
+    <form action="/logout">
+        <input type="submit" value="Выйти">
+    </form>
+    <button>Меню</button>
+    {{else}}
     <form action="/login">
         <input type="submit" value="Войти">
     </form>
     <form action="/registration">
         <input type="submit" value="Зарегистрироваться">
     </form>
-    {{/if}}
-    {{#if isUser}}
-    <button>Меню</button>
     {{/if}}
   </header>
   {{{body}}}
