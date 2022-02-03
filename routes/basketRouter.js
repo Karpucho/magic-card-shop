@@ -7,23 +7,26 @@ router.route('/')
     if (true) {
       // снимается с сессии
       const userId = 1;
+      // вытаскивается из базы данных
       cards = [{
         id: 1,
-        name: 'first Card',
+        cardsName: 'first Card',
         price: '2$',
         condition: 'very nice',
         city: 'saint-P',
       },
       {
         id: 2,
-        name: 'second Card',
+        cardsName: 'second Card',
         price: '4$',
         condition: 'bad',
         city: 'MSK',
       }];
     }
+
+    // isAutorized вытаскивается из корзины
     res.render('basket', {
-      isGuest: true,
+      isAutorized: false,
       cards,
     });
   });
