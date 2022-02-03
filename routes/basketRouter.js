@@ -21,12 +21,15 @@ router.route('/')
         price: '4$',
         condition: 'bad',
         city: 'MSK',
-      }];
+      },
+      ];
     }
 
     // isAutorized вытаскивается из корзины
     res.render('basket', {
+
       isAutorized: false,
+
       cards,
     });
   });
