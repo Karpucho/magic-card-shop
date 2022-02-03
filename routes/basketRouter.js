@@ -9,6 +9,7 @@ router.route('/')
       where: {
         id: [1, 3],
       },
+
       include: [{
         model: User,
         attributes: ['city'],
@@ -20,6 +21,7 @@ router.route('/')
 
     res.render('index', {
       isAutorized: true,
+
       cards,
     });
   });

@@ -3,6 +3,7 @@ const { Card, User } = require('../db/models');
 const addCityKey = require('../helpers/addCityKey');
 
 router.route('/')
+
   .get(async (req, res) => {
     // проверка аутентификации
     // if (true) {
@@ -26,6 +27,7 @@ router.route('/')
     res.render('index', {
       isAutorized: true,
       cards,
+
     });
   });
 

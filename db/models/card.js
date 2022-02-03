@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User, Basket }) {
       Card.belongsTo(User, { foreignKey: 'userId' });
-      // Card.belongsTo(Basket, { foreignKey: 'cardsId' });
+
+      //   Card.belongsTo(Basket, { foreignKey: 'cardsId' });
     }
   }
   Card.init({
