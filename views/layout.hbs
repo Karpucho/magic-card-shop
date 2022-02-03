@@ -11,11 +11,12 @@
   <header>
     <form action="/search" method="post">
       <input type="text" name="search">
-      <input type="submit" name="Поиск">
+      <input type="submit" value="Поиск">
     </form>
-    <form action="/basket">
+    <form action="/basket" method="get">
         <input type="submit" value="Корзина">
     </form>
+
     {{#if isAuthorized}}
     <form action="/logout">
         <input type="submit" value="Выйти">
