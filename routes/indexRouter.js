@@ -1,38 +1,30 @@
 const router = require('express').Router();
+const { Card, User } = require('../db/models');
+const addCityKey = require('../helpers/addCityKey');
 
 router.route('/')
-  .get((req, res) => {
-    let cards;
+  .get(async (req, res) => {
     // проверка аутентификации
-    if (true) {
-      // снимается с сессии
-      const userId = 1;
+    // if (true) {
+    // снимается с сессии
 
-      // вытаскивается из базы данных
-      cards = [{
-        id: 1,
-        cardsName: 'first Card',
-        price: '2$',
-        condition: 'very nice',
-        city: 'saint-P',
+    // вытаскивается из базы данных
+    const cards = await Card.findAll({
+      // какое либо условие
+      where: {
+        id: [1, 3],
       },
-      {
-        id: 2,
-        cardsName: 'second Card',
-        price: '4$',
-        condition: 'bad',
-        city: 'MSK',
-      },
-      {
-        id: 3,
-        cardsName: 'third Card',
-        price: '5$',
-        condition: 'excelent',
-        city: 'EKB',
-      }];
-    }
+      include: [{
+        model: User,
+        attributes: ['city'],
+      }],
+      raw: true,
+    });
+
+    addCityKey(cards);
+
     res.render('index', {
-      isAutorized: false,
+      isAutorized: true,
       cards,
     });
   });
