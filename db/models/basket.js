@@ -9,25 +9,24 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User, Card }) {
+    static associate({ User, BasketCard, Card }) {
       Basket.belongsTo(User, { foreignKey: 'userId' });
-      Basket.hasMany(Card, { foreignKey: 'cardsId' });
+      Basket.belongsToMany(Card, { through: BasketCard, foreignKey: 'basketId', otherKey: 'cardId' });
 
       // define association here
     }
   }
   Basket.init({
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+    },
     userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Users',
-        key: 'id',
-      },
-    },
-    cardsId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Cards',
         key: 'id',
       },
     },
