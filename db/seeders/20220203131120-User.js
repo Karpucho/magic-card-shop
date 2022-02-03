@@ -8,6 +8,14 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     },
+    {
+      name: 'qwewqe',
+      email: 'w@w',
+      password: '123',
+      city: 'MSK',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
     ], {});
   },
   async down(queryInterface, Sequelize) {

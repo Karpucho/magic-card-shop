@@ -15,9 +15,22 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      condition: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+
       price: {
         allowNull: false,
         type: Sequelize.INTEGER,
+      },
+
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
