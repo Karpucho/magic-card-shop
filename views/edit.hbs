@@ -10,10 +10,10 @@
 <form id='editCard' name='editCard' action="/edit/{{oneCard.id}}">
 
         <label for="cardsName">Название</label>
-        <input id='cardsName' type="text" name='cardsName' required value="{{oneCard.name}}">
+        <input id='cardsName' type="text" name='cardsName' required value="{{oneCard.cardsName}}">
 
         <label for="price">Цена</label>
-        <input id='price' type="text" name='description' required value="{{oneCard.description}}">
+        <input id='price' type="text" name='price' required value="{{oneCard.price}}">
 
         <label for='img'>Выберите файл</label>
         <input id='img' type="text" name='img' required value="{{oneCard.img}}">
@@ -24,3 +24,5 @@
         <button type="submit">Сохранить</button>
 
     </form>
+
+  <script defer src="/edit.client.js"></script>  
