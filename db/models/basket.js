@@ -10,13 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    // static associate({ User, BasketCard, Card }) {
-    //   Basket.belongsTo(User, { foreignKey: 'userId' });
-    //   Basket.belongsToMany(Card, { through: BasketCard, foreignKey: 'basketId', otherKey: 'cardId' });
+    static associate({ User, BasketCard, Card }) {
+      Basket.belongsTo(User, { foreignKey: 'userId' });
+      Basket.belongsTo(Card, { foreignKey: 'cardId' });
 
-
-    //   // define association here
-    // }
+      // define association here
+    }
   }
   Basket.init({
     id: {
@@ -29,6 +28,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       references: {
         model: 'Users',
+        key: 'id',
+      },
+    },
+    cardId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Cards',
         key: 'id',
       },
     },

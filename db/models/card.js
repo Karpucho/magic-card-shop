@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
 
     static associate({ Basket, BasketCard, User }) {
-      // Card.belongsTo(Basket);
+      Card.hasMany(Basket, { foreignKey: 'cardId' });
       Card.belongsTo(User, { foreignKey: 'userId' });
       // Card.belongsToMany(Basket, { through: BasketCard, foreignKey: 'cardId', otherKey: 'basketId' });
     }

@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Card, User } = require('../db/models');
-const addCityKey = require('../helpers/addCityKey');
+const { Card, User, Basket } = require('../db/models');
+const fixBasketKeys = require('../helpers/fixBasketKeys');
 
 router.route('/')
   .get(async (req, res) => {
@@ -8,20 +8,18 @@ router.route('/')
 
     if (req.session.isAuthorized) {
       const userId = req.session.user.id;
-      // вытаскивается из базы данных Basket
-      // не забыть поменять, Cards в тестовом режиме
-      cards = await Card.findAll({
-        where: {
-          userId,
-        },
-        raw: true,
-        include: {
-          model: User,
-          attributes: ['city'],
-        },
-      });
 
-      addCityKey(cards);
+      cards = await Basket.findAll({
+        where: { userId },
+        raw: true,
+        include:
+          {
+            model: Card,
+            attributes: ['condition', 'cardsName', 'img', 'price'],
+            include: { model: User, attributes: ['city'] },
+          },
+      });
+      fixBasketKeys(cards);
     }
 
     res.render('basket', {
@@ -30,19 +28,39 @@ router.route('/')
     });
   });
 
-router.route('/:id')
+router.route('/:cardId')
+  .post(async (req, res) => {
+    let message = 'error';
+    if (req.session.isAuthorized) {
+      const cardId = Number(req.params.cardId);
+      const userId = req.session.user.id;
+
+      const cards = await Basket.findAll({
+        where: { cardId, userId },
+        raw: true,
+      });
+
+      if (cards.length !== 0) {
+        message = 'addedBefore';
+      } else {
+        await Basket.create({
+          cardId, userId,
+        });
+        message = 'newOne';
+      }
+    }
+    res.json({ message });
+  })
   .delete(async (req, res) => {
     if (req.session.isAuthorized) {
-      const { id } = req.params;
-      // удаляется из базы данных Basket
-      // не забыть поменять, Cards в тестовом режиме
+      const id = req.params.cardId;
 
-      await Card.destroy({
+      await Basket.destroy({
         where: { id },
       });
-      return res.status(201);
+      return res.status(201).end();
     }
-    res.status(404).redirect('/');
+    res.status(404).end();
   });
 
 // router.route('add/:id')

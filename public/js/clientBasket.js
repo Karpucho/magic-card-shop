@@ -5,9 +5,8 @@ if (document.querySelectorAll('.deleteBasketButton')) {
     el.addEventListener('click', async (event) => {
       event.preventDefault();
 
-      const basketCard = el.parentElement;
+      const basketCard = el.parentNode.parentNode.parentNode.parentNode.parentNode;
       const basketId = basketCard.id;
-
       await fetch(`/basket/${basketId}`, {
         method: 'DELETE',
       });
