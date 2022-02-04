@@ -14,13 +14,6 @@ module.exports = {
           key: 'id',
         },
       },
-      cardsId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Cards',
-          key: 'id',
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
