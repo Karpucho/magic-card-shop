@@ -5,7 +5,7 @@ if (document.querySelectorAll('.addButton')) {
     el.addEventListener('click', async (event) => {
       event.preventDefault();
 
-      const cardId = el.parentElement.id;
+      const cardId = el.parentElement.parentNode.parentNode.parentNode.parentNode.id;
 
       const response = await fetch(`/basket/${cardId}`, {
         method: 'POST',

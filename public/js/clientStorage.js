@@ -5,7 +5,7 @@ if (document.querySelectorAll('.deleteStorageButton')) {
     el.addEventListener('click', async (event) => {
       event.preventDefault();
 
-      const storageCard = el.parentElement;
+      const storageCard = el.parentElement.parentNode.parentNode.parentNode.parentNode;
       const storageId = storageCard.id;
 
       await fetch(`/storage/${storageId}`, {
