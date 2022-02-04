@@ -6,7 +6,7 @@ editCard?.addEventListener('submit', async (event) => {
   const body = {
     cardsName: event.target.cardsName.value,
     price: event.target.price.value,
-    img: event.target.img.value,
+    img: event.target.img1.value,
     condition: event.target.condition.value,
   };
   const response = await fetch(action, {
