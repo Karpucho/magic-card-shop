@@ -1,18 +1,18 @@
-if (document.querySelectorAll('.deletBasketButton')) {
-  const buttons = document.querySelectorAll('.deletBasketButton');
+if (document.querySelectorAll('.addButton')) {
+  const buttons = document.querySelectorAll('.addButton');
 
   buttons.forEach((el) => {
     el.addEventListener('click', async (event) => {
       event.preventDefault();
 
-      const basketCard = el.parentElement;
-      const basketId = basketCard.id;
+      const cardId = el.parentElement.id;
+      console.log(cardId);
 
-      await fetch(`/basket/${basketId}`, {
-        method: 'DELETE',
-      });
+      // await fetch(`/basket/${basketId}`, {
+      // //   method: 'DELETE',
+      // });
 
-      basketCard.remove();
+      // basketCard.remove();
     });
   });
 }

@@ -1,5 +1,5 @@
-if (document.querySelectorAll('.deletBasketButton')) {
-  const buttons = document.querySelectorAll('.deletBasketButton');
+if (document.querySelectorAll('.deleteBasketButton')) {
+  const buttons = document.querySelectorAll('.deleteBasketButton');
 
   buttons.forEach((el) => {
     el.addEventListener('click', async (event) => {

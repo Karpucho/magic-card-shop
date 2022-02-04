@@ -36,6 +36,7 @@ router.route('/:id')
       const { id } = req.params;
       // удаляется из базы данных Basket
       // не забыть поменять, Cards в тестовом режиме
+
       await Card.destroy({
         where: { id },
       });
@@ -43,5 +44,18 @@ router.route('/:id')
     }
     res.status(404).redirect('/');
   });
+
+// router.route('add/:id')
+//   .post(async (req, res) => {
+//     if (req.session.isAuthorized) {
+//       const { cardId, userId } = req.body;
+
+//       await Card.cra({
+//         where: { id },
+//       });
+//       return res.send('ok');
+//     }
+//     res.status(404).redirect('/');
+//   });
 
 module.exports = router;
