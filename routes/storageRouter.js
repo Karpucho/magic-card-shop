@@ -1,8 +1,6 @@
 const router = require('express').Router();
-const {
-  Card,
-  User,
-} = require('../db/models');
+const { Card, User } = require('../db/models');
+const addCityKey = require('../helpers/addCityKey');
 
 router.get('/', async (req, res) => {
   const cards = await Card.findAll({
@@ -13,11 +11,7 @@ router.get('/', async (req, res) => {
     },
   });
 
-  cards.map((card) => {
-    card.city = card['User.city'];
-    delete card['User.city'];
-  });
-
+  addCityKey(cards);
   res.render('storage', {
     isAuthorized: req.session.isAuthorized,
     cards,
