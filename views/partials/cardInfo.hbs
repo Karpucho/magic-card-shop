@@ -1,5 +1,38 @@
   <p>Имя: {{cardsName}}</p>
-  <img url="{{image}}">
+  <img src="{{image}}">
   <p>Цена:{{price}}</p>
   <p>Состояние:{{condition}}</p>
   <p>Город:{{city}}</p>
+<<<<<<< HEAD
+=======
+
+  <div background-color= "#ebebeb" class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+{{#each cards}}
+        <div class="col" id="{{id}}">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title></title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+            <div class="card-body">
+              <p class="card-text">{{>cardInfo}}</p>
+                <p>Имя: {{cardsName}}</p>
+                <p>Состояние:{{condition}}</p>
+                <p>Город:{{city}}</p>
+                <p>Цена:{{price}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+
+                  {{!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> --}}
+                </div>
+                {{!-- <small class="text-muted">9 mins</small> --}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+{{/each}}
+      </div>
+    </div>
+  </div>
+>>>>>>> 04286c74546664c86946e07489e399d1acea384a
