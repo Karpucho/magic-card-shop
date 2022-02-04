@@ -9,10 +9,7 @@ body {
   /* padding-top: 40px; */
   background-color: #ebebeb;
 }
-.nav1 {
-  z-index: 3;
-  box-shadow: 0 0 35px rgb(0, 0, 0);
-}
+
 .cardDiv {
   margin: 95px 20px 0px 50px;
 }
@@ -25,9 +22,6 @@ body {
 .class2 {
   display: flex;
   align-items: center;
-  min-width: 150px;
-  max-width: 600px;
-  margin-left: 310px;
   font-size: 20px;
   display: flex;
   align-items: center;
