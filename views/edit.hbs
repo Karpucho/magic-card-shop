@@ -1,9 +1,26 @@
-<form action="/edit">
-  <label for="name">Название</label>
-  <input type="text" name="cardsName" id="name">
-  <label for="price">Стоимость</label>
-  <input type="text" name="price" id="price">
-  <label for="condition">Состояние</label>
-  <input type="text" name="condition" id="condition">
-  <input type="submit" value="{{action}}">
-</form>
+<div id="cardId">
+  <div class="card" data-id={{id}}>
+    <img src='{{oneCard.img}}'>
+    <p>Наименование:{{oneCard.cardsName}}</p>
+    <p>Цена: {{oneCard.price}}</p>
+    <p>Состояние: {{oneCard.condition}}</p>
+  </div>
+</div>
+
+<form id='editCard' name='editCard' action="/edit/{{oneCard.id}}">
+
+        <label for="cardsName">Название</label>
+        <input id='cardsName' type="text" name='cardsName' required value="{{oneCard.name}}">
+
+        <label for="price">Цена</label>
+        <input id='price' type="text" name='description' required value="{{oneCard.description}}">
+
+        <label for='img'>Выберите файл</label>
+        <input id='img' type="text" name='img' required value="{{oneCard.img}}">
+
+        <label for='condition'>Состояние</label>
+        <input id='condition' type="text" name='condition' required value="{{oneCard.condition}}">
+
+        <button type="submit">Сохранить</button>
+
+    </form>
