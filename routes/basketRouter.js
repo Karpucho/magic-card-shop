@@ -40,7 +40,7 @@ router.route('/:id')
       await Card.destroy({
         where: { id },
       });
-      return res.send('ok');
+      return res.status(201);
     }
     res.status(404).redirect('/');
   });
