@@ -1,0 +1,21 @@
+
+{{#if isAuthorized}}  
+<form id='addCard' name='addCard' action="/edit">
+
+  <label for="cardsName">Название</label>
+  <input id='cardsName' type="text" name='cardsName' required placeholder="Введите название">
+
+  <label for="price">Цена</label>
+  <input id='price' type="text" name='price' required placeholder="Введите цену">
+
+  <label for='img'>Выберите файл</label>
+  <input id='img' type="text" name='img' required placeholder="Прикрепите картинку">
+
+  <label for='condition'>Состояние</label>
+  <input id='condition' type="text" name='condition' required placeholder="Добавьте состояние" >
+
+  <button type="submit">Добавить</button>
+
+</form>
+{{/if}}
+    <script defer src="/addcard.client.js"></script>

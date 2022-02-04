@@ -1,11 +1,21 @@
 
-<div> Карточка {{cards.cardsName}}</div>
-<form action="/edit">
-  <label for="name">Название</label>
-  <input type="text" name="cardsName" id="name">
-  <label for="price">Стоимость</label>
-  <input type="text" name="price" id="price">
-  <label for="condition">Состояние</label>
-  <input type="text" name="condition" id="condition">
-  <input type="submit" value="{{action}}">
-</form>
+
+<form id='editCard' name='editCard' action="/edit/{{oneCard.id}}">
+
+        <label for="cardsName">Название</label>
+        <input id='cardsName' type="text" name='cardsName' required value="{{oneCard.cardsName}}">
+
+        <label for="price">Цена</label>
+        <input id='price' type="text" name='price' required value="{{oneCard.price}}">
+
+        <label for='img'>Выберите файл</label>
+        <input id='img' type="text" name='img' required value="{{oneCard.img}}">
+
+        <label for='condition'>Состояние</label>
+        <input id='condition' type="text" name='condition' required value="{{oneCard.condition}}">
+
+        <button type="submit">Сохранить</button>
+
+    </form>
+
+  <script defer src="/edit.client.js"></script>  
