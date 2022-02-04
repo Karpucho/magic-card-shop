@@ -5,6 +5,7 @@ const addCityKey = require('../helpers/addCityKey');
 router.route('/')
   .get(async (req, res) => {
     // вытаскиваем все карты
+
     const cards = await Card.findAll({
       raw: true,
       include: {
