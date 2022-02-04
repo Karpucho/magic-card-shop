@@ -10,21 +10,32 @@ router.route('/')
     res.render('registration');
   })
   .post(async (req, res) => {
+    let message = 'error';
     const {
       name,
       email,
       password,
       city,
     } = req.body;
-
-    const user = await User.create({
-      name,
-      email,
-      city,
-      password: await bcrypt.hash(password, 10),
+    const users = await User.findAll({
+      where: { email },
+      raw: true,
     });
-    req.session.user = user;
-    req.session.isAuthorized = true;
-    res.redirect('/');
+
+    if (users.length !== 0) {
+      message = 'addedBefore';
+      res.redirect('/registration');
+    } else {
+      const user = await User.create({
+        name,
+        email,
+        city,
+        password: await bcrypt.hash(password, 10),
+      });
+      req.session.user = user;
+      req.session.isAuthorized = true;
+      message = 'newOne';
+      res.redirect('/');
+    }
   });
 module.exports = router;
