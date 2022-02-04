@@ -1,28 +1,6 @@
-<div class="entries">
-  {{#each cards}}
-  <div class="entry" id="card-{{id}}">
-
+{{#each cards}}
+  <div id="{{id}}" class="card">
     {{>cardInfo}}
     {{>storageButton}}
-
   </div>
 {{/each}}
-</div>
-
-
-{{!-- <main role="main">
-  <ul class="listCards">
-    {{#each cards}}
-    <li class="entry">
-     {{>cardInfo}}
-      <ul class="entry-links">
-        {{!-- <li class="entry-link"><a href="/edit/{{this.id}}">Edit</a></li>
-        <li class="entry-link"><a href="/edit/delete/{{this.id}}">Delete</a></li> --}}
-        {{!-- <li class="entry-link"><button href="/edit/{{this.id}}" >Edit</button></li>
-        <li class="entry-link"><button id="{{this.id}}">Delete</button></li>
-      </ul>
-    </li> --}}
-    {{!-- {{/each}}
-  
-  </ul>
-</main> --}} 
