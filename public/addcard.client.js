@@ -8,6 +8,7 @@ addCard?.addEventListener('submit', async (event) => {
     condition: event.target.condition.value,
     price: event.target.price.value,
   };
+
   const response = await fetch(action, {
     method: 'POST',
     headers: {
@@ -17,8 +18,12 @@ addCard?.addEventListener('submit', async (event) => {
   });
   const json = await response.json();
   if (json.status === 'Ok') {
-    alert('Карта добавлена!');
+    addCard.cardsName.value = '';
+    addCard.img1.value = '';
+    addCard.condition.value = '';
+    addCard.price.value = '';
+    document.getElementById('alert').innerText = 'Карточка добавлена!';
   } else {
-    alert('Не добавили сорян!');
+    alert('Ошибка ввода данных!');
   }
 });

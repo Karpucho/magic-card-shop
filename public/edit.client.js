@@ -18,7 +18,7 @@ editCard?.addEventListener('submit', async (event) => {
   const json = await response.json();
 
   if (json.status === 'Ok') {
-    alert('Карточка изменена');
+    document.getElementById('alert').innerText = 'Карточка изменена!';
   } else {
     alert('Изменения не сохранены!!!');
   }

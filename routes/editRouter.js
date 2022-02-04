@@ -3,7 +3,10 @@ const router = require('express').Router();
 const { Card } = require('../db/models');
 
 router.get('/', (req, res) => {
-  res.render('addcard');
+  if (req.session.isAuthorized) {
+    return res.render('addcard', { isAuthorized: req.session.isAuthorized });
+  }
+  res.redirect('/');
 });
 
 router.post('/', async (req, res) => {
@@ -23,7 +26,6 @@ router.post('/', async (req, res) => {
     res.json({ status: error.message });
   }
 });
-
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
