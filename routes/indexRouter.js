@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { Card, User } = require('../db/models');
-
+const addCityKey = require('../helpers/addCityKey');
 
 router.route('/')
   .get(async (req, res) => {
+    // вытаскиваем все карты
+
     const cards = await Card.findAll({
       raw: true,
       include: {
@@ -12,10 +14,7 @@ router.route('/')
       },
     });
 
-    cards.map((card) => {
-      card.city = card['User.city'];
-      delete card['User.city'];
-    });
+    addCityKey(cards);
 
     res.render('index', {
       isAuthorized: req.session.isAuthorized,
