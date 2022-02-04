@@ -1,17 +1,31 @@
-<form action="/registration" method="post">
-  <label for="email">Введите e-mail</label>
-  <input type="text" name="email" id="email">
-  <br>
-  <label for="name">Введите город</label>
-  <input type="text" name="city" placeholder="city">
-  <br>
-  {{!-- <label for="passwordSecond">Повторите пароль</label>
-  <input type="password" name="passwordSecond" id="passwordSecond"> --}}
-  <label for="name">Введите имя пользователя</label>
-  <input type="text" name="name" id="name">
-  <br>
-  <label for="password">Введите пароль</label>
-  <input type="password" name="password" id="password">
-  <br>
-  <input type="submit" value="Зарегистрироваться">
-</form>
+
+<main id="reg" class="form-signin text-center">
+  <form action="/registration" method="post">
+    <h1 class="h3 mb-3 fw-normal">Registration</h1>
+
+    <div class="form-floating">
+      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating ">
+      <input type="text" name="city" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">City</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" name="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Name</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <br>
+    {{!-- <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div> --}}
+    <button class="w-100 btn btn-lg btn-warning" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 1970–2023</p>
+  </form>
+</main>
