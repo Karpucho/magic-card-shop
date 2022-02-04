@@ -1,6 +1,13 @@
-  <form class="editButton">
+
+  {{!-- <form class="cardButton" name="editCard">
     <input type="submit" value="Редактировать">
-  </form>
-  <form class="deleteStorageButton">
+  </form> --}}
+  {{!-- <form class="cardButton" name="deleteCard">
+
     <input type="submit" value="Удалить">
-  </form>
+  </form> --}}
+
+<div class="cardButtons">
+ <button class="editButton" id="{{this.id}}">Edit</button>
+ <button class="deleteButton" id="{{this.id}}">Delete</button>
+</div>
